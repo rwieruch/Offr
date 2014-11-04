@@ -28,8 +28,6 @@ angular.module('offrApp')
 					var y = d3.scale.linear()
 					    .range([height, 0]);
 
-			  	y.domain([0, d3.max(scope.hardskill, function(d) { return d.expertise; })]);
-
 					var xAxis = d3.svg.axis()
 					    .scale(x)
 					    .orient("bottom");
@@ -94,6 +92,13 @@ angular.module('offrApp')
 	          newVal.forEach(function(d) {
 	            d.expertise = +d.expertise;
 	          });
+
+						// update y axis
+  			  	y.domain([0, d3.max(scope.hardskill, function(d) { return d.expertise; })]);
+					  svg.select(".y.axis")
+					    	.transition()
+	    					.duration(300)
+					      .call(yAxis);
 
           	// update x axis
 					  x.domain(newVal.map(function(d) { return d.tag; }));

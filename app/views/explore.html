@@ -33,7 +33,7 @@
 						  </div>
 						  <div class="col-md-10">
 							    <h1>{{selectedUser.name}}</h1>
-									<p>{{selectedUser.description | limitTo : 200}}<span ng-show="selectedUser.description.length > 200"> ...</span> - <a href="">Details</a></p>
+									<p>{{selectedUser.description | limitTo : 200}} {{selectedUser.description.length > 200 ? '...' : ''}} - <a href="">Details</a></p>
 						  </div>
 						</div>
 					</div>
