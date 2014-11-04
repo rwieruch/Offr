@@ -11,17 +11,61 @@ angular.module('offrApp')
     return {
       restrict: 'EA',
       scope: { 
-      	hardskill: '='
+      	hardskill: '=hardskill'
       },
       link: function(scope, element, attrs) {
         d3Service.d3().then(function(d3) {
+
+          scope.$watch('hardskill', function (newVal, oldVal) {
+				  	x.domain(newVal.map(function(d) { return d.tag; }));
+
+				   svg.select("x.axis")
+				        .call(xAxis);
+
+          	// new data
+            var bars = svg.selectAll(".bar")
+             .data(newVal);
+
+ 				    // enter
+				    bars.enter()
+				        .append("rect")
+				        .attr("class", "bar");
+
+				    // exit 
+				    bars.exit()
+				    .transition()
+				    .duration(300)
+				    .ease("exp")
+				        .attr("height", 0)
+				        .remove();
+
+						// update 
+				    bars.on("mouseover", function() {
+			        d3.select(this)
+			          .style("fill", "orangered")
+						}).on("mouseout", function() {
+					    d3.select(this)
+					      .transition()
+					      .duration(250)
+					      .style("fill", "orange");
+						})
+				    .transition()
+				    .duration(300)
+				    .ease("quad")
+				      .attr("class", "bar")
+				      .attr("x", function(d) { return x(d.tag); })
+				      .attr("width", x.rangeBand())
+				      .attr("y", function(d) { return y(d.expertise); })
+				      .attr("height", function(d) { return height - y(d.expertise); });
+
+          });
 
           scope.hardskill.forEach(function(d) {
             d.expertise = +d.expertise;
           });
 
-          var margin = {top: 40, right: 20, bottom: 100, left: 40},
-				    width = 500 - margin.left - margin.right,
+          var margin = {top: 40, right: 20, bottom: 50, left: 40},
+				    width = 525 - margin.left - margin.right,
 				    height = 300 - margin.top - margin.bottom;
 
 					var formatPercent = d3.format("%");
@@ -52,20 +96,20 @@ angular.module('offrApp')
 				  y.domain([0, d3.max(scope.hardskill, function(d) { return d.expertise; })]);
 
 				  // x axis content
-				  var xAxis = svg.append("g")
+				  var xAxisContent = svg.append("g")
 				      .attr("class", "x axis")
 				      .attr("transform", "translate(0," + height + ")")
 				      .call(xAxis);
 
-           xAxis.selectAll("text")  
+           xAxisContent.selectAll("text")  
 	            .style("text-anchor", "end")
 	            .attr("dx", "-.8em")
 	            .attr("dy", ".15em")
 	            .attr("transform", function(d) {
-	                return "rotate(-65)" 
+	                return "rotate(-35)" 
               });
 
-			    xAxis.append("text")
+			    xAxisContent.append("text")
 			      .attr("class", "label-big")
 			      .attr("x", width/2)
 			      .attr("y", -height-22)
@@ -73,11 +117,11 @@ angular.module('offrApp')
 			      .text("Skills");
 
 	        // y axis content
-				  var yAxis = svg.append("g")
+				  var yAxisContent = svg.append("g")
 				      .attr("class", "y axis")
 				      .call(yAxis);
 				  
-			    yAxis.append("text")
+			    yAxisContent.append("text")
 			    	.attr("class", "label-mid")
 			      .attr("transform", "rotate(-90)")
 			      .attr("x", -height/2)
@@ -86,7 +130,7 @@ angular.module('offrApp')
 			      .style("text-anchor", "middle")
 			      .text("Expertise");
 
-  			  yAxis.append("text")
+  			  yAxisContent.append("text")
 			      .attr("class", "label-small")
 			      .attr("transform", "rotate(-90)")
 			      .attr("y", -22)
@@ -94,7 +138,7 @@ angular.module('offrApp')
 			      .style("text-anchor", "end")
 			      .text("great");
 
-				  yAxis.append("text")
+				  yAxisContent.append("text")
 			      .attr("class", "label-small")
 			      .attr("transform", "rotate(-90)")
 			      .attr("x", -height)
@@ -120,6 +164,7 @@ angular.module('offrApp')
 					      .duration(250)
 					      .style("fill", "orange");
 						});
+
 	      });
 	    }
 	  };

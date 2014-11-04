@@ -10,7 +10,13 @@
             {"tag": "Angular", "expertise": 37},
             {"tag": "Ember", "expertise": 56},
             {"tag": "Backbone", "expertise": 50},
-            {"tag": "Grunt", "expertise": 77}
+            {"tag": "Grunt", "expertise": 77},
+            {"tag": "Gulp", "expertise": 84},
+            {"tag": "JsLint", "expertise": 45},
+            {"tag": "Bower", "expertise": 27},
+            {"tag": "NPM", "expertise": 76},
+            {"tag": "Git", "expertise": 40},
+            {"tag": "Svn", "expertise": 37}
           ]
     },  
     { 
@@ -23,8 +29,26 @@
             {"tag": "D3", "expertise": 25},
             {"tag": "Angular", "expertise": 67},
             {"tag": "Ember", "expertise": 26},
-            {"tag": "Backbone", "expertise": 80},
-            {"tag": "Grunt", "expertise": 57}
+            {"tag": "Grunt", "expertise": 57},
+            {"tag": "Gulp", "expertise": 34},
+            {"tag": "JsLint", "expertise": 85},
+            {"tag": "NPM", "expertise": 66},
+            {"tag": "Git", "expertise": 30},
+            {"tag": "Svn", "expertise": 67}
+          ]
+    },  
+    { 
+        "id": 2, 
+        "imageUrl": "images/placeholder_user.jpg", 
+        "name": "Nari Nuri", 
+        "description": "Wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi",
+        "hardskill": [
+            {"tag": "JavaScript", "expertise": 44},
+            {"tag": "D3", "expertise": 45},
+            {"tag": "Ember", "expertise": 76},
+            {"tag": "Gulp", "expertise": 54},
+            {"tag": "JsLint", "expertise": 25},
+            {"tag": "Svn", "expertise": 87}
           ]
     }
 ]
