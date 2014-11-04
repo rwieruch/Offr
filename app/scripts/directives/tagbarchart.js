@@ -111,7 +111,7 @@ angular.module('offrApp')
 		                return "rotate(-35)" 
 	              });
 
-          	// new data
+          	// update bars
             var bars = svg.selectAll(".bar")
              		.data(newVal);
             
@@ -122,17 +122,21 @@ angular.module('offrApp')
 
 				    // exit old
 				    bars.exit()
-				    .transition()
-				    .duration(300)
-				    .ease("exp")
-				        .attr("height", 0)
-				        .remove();
+						    .transition()
+						    .duration(300)
+						    .ease("exp")
+						    		.attr("y", function(d) { return y(0); })
+						        .attr("height", 0)
+						        .remove();
 
 						// update all
-				    bars.on("mouseover", function() {
+				    bars
+				    	.text(function(d) { return d.expertise; })
+				    	.on("mouseover", function() {
 				        d3.select(this)
 				          .style("fill", "orangered")
-							}).on("mouseout", function() {
+							})
+				    	.on("mouseout", function() {
 						    d3.select(this)
 						      .transition()
 						      .duration(250)
@@ -146,6 +150,32 @@ angular.module('offrApp')
 					      .attr("y", function(d) { return y(d.expertise); })
 					      .attr("height", function(d) { return height - y(d.expertise); });
 
+					  // update labels
+				    var bartext = svg.selectAll(".bartext")
+							.data(newVal);
+
+            // enter new
+            bartext.enter()
+				        .append("text")
+				        .attr("class", "bartext");
+
+				    // exit old
+				    bartext.exit().remove();
+
+						bartext
+							.transition().delay(300).duration(300).ease("quad")
+								.attr("text-anchor", "middle")
+								.attr("fill", "white")
+								.attr("x", function(d,i) {
+								    return x(d.tag)+x.rangeBand()/2;
+								})
+							.transition().delay(600).duration(300).ease("quad")
+								.attr("y", function(d,i) {
+								    return y(d.expertise)+20;
+								})
+								.text(function(d){
+								     return d.expertise;
+								});
           });
 
 	      });
