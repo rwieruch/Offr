@@ -50,5 +50,109 @@
             {"tag": "JsLint", "expertise": 25},
             {"tag": "Svn", "expertise": 87}
           ]
+    },
+    { 
+      "id": 4, 
+      "imageUrl": "images/placeholder_user.jpg", 
+      "name": "Juri Jar", 
+      "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+      "hardskill": [
+          {"tag": "JavaScript", "expertise": 34},
+          {"tag": "D3", "expertise": 45},
+          {"tag": "Angular", "expertise": 37},
+          {"tag": "Ember", "expertise": 56},
+          {"tag": "Backbone", "expertise": 50},
+          {"tag": "Grunt", "expertise": 77},
+          {"tag": "Gulp", "expertise": 84},
+          {"tag": "JsLint", "expertise": 45},
+          {"tag": "Bower", "expertise": 27},
+          {"tag": "NPM", "expertise": 76},
+          {"tag": "Git", "expertise": 40},
+          {"tag": "Svn", "expertise": 37}
+        ]
+    },  
+    { 
+        "id": 5, 
+        "imageUrl": "images/placeholder_user.jpg", 
+        "name": "Gari Gur", 
+        "description": "Lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune",
+        "hardskill": [
+            {"tag": "JavaScript", "expertise": 54},
+            {"tag": "D3", "expertise": 25},
+            {"tag": "Angular", "expertise": 67},
+            {"tag": "Ember", "expertise": 26},
+            {"tag": "Grunt", "expertise": 57},
+            {"tag": "Gulp", "expertise": 34},
+            {"tag": "JsLint", "expertise": 85},
+            {"tag": "NPM", "expertise": 66},
+            {"tag": "Git", "expertise": 30},
+            {"tag": "Svn", "expertise": 67}
+          ]
+    },  
+    { 
+        "id": 6, 
+        "imageUrl": "images/placeholder_user.jpg", 
+        "name": "Nari Nuri", 
+        "description": "Wuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi <More Tag mit nutzerprofil link",
+        "hardskill": [
+            {"tag": "JavaScript", "expertise": 44},
+            {"tag": "D3", "expertise": 45},
+            {"tag": "Ember", "expertise": 76},
+            {"tag": "Gulp", "expertise": 54},
+            {"tag": "JsLint", "expertise": 25},
+            {"tag": "Svn", "expertise": 87}
+          ]
+    },
+    { 
+    "id": 7, 
+    "imageUrl": "images/placeholder_user.jpg", 
+    "name": "Juri Jar", 
+    "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+    "hardskill": [
+        {"tag": "JavaScript", "expertise": 34},
+        {"tag": "D3", "expertise": 45},
+        {"tag": "Angular", "expertise": 37},
+        {"tag": "Ember", "expertise": 56},
+        {"tag": "Backbone", "expertise": 50},
+        {"tag": "Grunt", "expertise": 77},
+        {"tag": "Gulp", "expertise": 84},
+        {"tag": "JsLint", "expertise": 45},
+        {"tag": "Bower", "expertise": 27},
+        {"tag": "NPM", "expertise": 76},
+        {"tag": "Git", "expertise": 40},
+        {"tag": "Svn", "expertise": 37}
+      ]
+    },  
+    { 
+        "id": 8, 
+        "imageUrl": "images/placeholder_user.jpg", 
+        "name": "Gari Gur", 
+        "description": "Lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune",
+        "hardskill": [
+            {"tag": "JavaScript", "expertise": 54},
+            {"tag": "D3", "expertise": 25},
+            {"tag": "Angular", "expertise": 67},
+            {"tag": "Ember", "expertise": 26},
+            {"tag": "Grunt", "expertise": 57},
+            {"tag": "Gulp", "expertise": 34},
+            {"tag": "JsLint", "expertise": 85},
+            {"tag": "NPM", "expertise": 66},
+            {"tag": "Git", "expertise": 30},
+            {"tag": "Svn", "expertise": 67}
+          ]
+    },  
+    { 
+        "id": 9, 
+        "imageUrl": "images/placeholder_user.jpg", 
+        "name": "Nari Nuri", 
+        "description": "Wuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi <More Tag mit nutzerprofil link",
+        "hardskill": [
+            {"tag": "JavaScript", "expertise": 44},
+            {"tag": "D3", "expertise": 45},
+            {"tag": "Ember", "expertise": 76},
+            {"tag": "Gulp", "expertise": 54},
+            {"tag": "JsLint", "expertise": 25},
+            {"tag": "Svn", "expertise": 87}
+          ]
     }
 ]

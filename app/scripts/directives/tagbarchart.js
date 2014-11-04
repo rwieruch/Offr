@@ -44,18 +44,18 @@ angular.module('offrApp')
 					  .append("g")
 					    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+			    svg.append("text")
+			      .attr("class", "label-big")
+			      .attr("x", width/2)
+			      .attr("y", -22)
+			      .style("text-anchor", "middle")
+			      .text("Skills");
+
  				  // x axis content
 				  var xAxisContent = svg.append("g")
 				      .attr("class", "x axis")
 				      .attr("transform", "translate(0," + height + ")")
 				      .call(xAxis);
-
-			    xAxisContent.append("text")
-			      .attr("class", "label-big")
-			      .attr("x", width/2)
-			      .attr("y", -height-22)
-			      .style("text-anchor", "middle")
-			      .text("Skills");
 
 	        // y axis content
 				  var yAxisContent = svg.append("g")

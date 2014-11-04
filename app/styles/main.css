@@ -65,6 +65,11 @@ ul {
   margin:100px auto;
 }
 
+.search-content {
+  height: 500px;
+  overflow-y: auto;
+}
+
 .profile-picture-big {
   width: 140px;
   height: auto;
