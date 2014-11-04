@@ -11,7 +11,11 @@
 }
 
 text {
-	fill:#fff;
+	fill: #fff;
+}
+
+.bartext {
+	font-weight: bold;
 }
 
 .label-big {

@@ -1,3 +1,11 @@
+/* Bootstrap Overwrite */
+
+.navbar {
+  border-radius: 0px;
+}
+
+/* Own */
+
 * {
   box-sizing: border-box; 
 }
@@ -8,14 +16,9 @@ body {
   font-family: 'HelveticaNeue';
 }
 
-.users-list-content {
-  background-color: #373B44;
-}
-
-.users-list {
-  width:300px;
-  margin:0px auto;
-  vertical-align: top;
+ul {
+  margin-left: -40px;
+  list-style-type: none;
 }
 
 .default {
@@ -25,7 +28,7 @@ body {
   margin: 0;
   max-width: none;
   background-color: #373B44;
-  height: 100vh;
+  height: 90vh;  
 }
 
 .inverted {
@@ -34,21 +37,22 @@ body {
   display: table;
   margin: 0;
   max-width: none;
-  background-color: #2ecc71;
-  height: 100vh;
+  background-color: #26A65B;
+  height: 90vh;
 }
 
 .default:nth-of-type(2n) {
-  background-color: #2ecc71;
+  background-color: #26A65B;
 }
 
 .intro {
-  height: 90vh;
+  height: 85vh;
   background: url("../images/intro_background.JPG") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin-top: 50px;
 }
 
 .content {
@@ -72,7 +76,10 @@ body {
   width: 50px;
   height: auto;
   display: inline-block;
-  margin: 5px 5px;
+}
+
+.profile-small {
+  margin: 5px 10px;
 }
 
 h1 {
@@ -110,7 +117,7 @@ a:active {
 }
 
 .default:nth-of-type(1+2n) a {
-  color: #2ecc71;
+  color: #26A65B;
 }
 
 .tile {
@@ -128,7 +135,7 @@ footer {
 }
 
 footer a {
-  color: #2ecc71;
+  color: #26A65B;
   font-weight: 500;
   text-decoration: none !important;
 }
@@ -183,13 +190,13 @@ a.btn,.btn {
 
 /* Colors */
 .btn-green {
-  color: #2ecc71;
-  border-color: #2ecc71;
+  color: #26A65B;
+  border-color: #26A65B;
 }
 .btn-green:hover {
-  background: #2ecc71 !important;
+  background: #26A65B !important;
   color: #fff;
-  border-color: #2ecc71;    
+  border-color: #26A65B;    
 }
 
 .btn-blue {

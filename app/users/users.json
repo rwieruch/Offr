@@ -3,7 +3,7 @@
         "id": 0, 
         "imageUrl": "images/placeholder_user.jpg", 
         "name": "Juri Jar", 
-        "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+        "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
         "hardskill": [
             {"tag": "JavaScript", "expertise": 34},
             {"tag": "D3", "expertise": 45},
@@ -41,7 +41,7 @@
         "id": 2, 
         "imageUrl": "images/placeholder_user.jpg", 
         "name": "Nari Nuri", 
-        "description": "Wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi",
+        "description": "Wuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppWuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi wuppi <More Tag mit nutzerprofil link",
         "hardskill": [
             {"tag": "JavaScript", "expertise": 44},
             {"tag": "D3", "expertise": 45},
