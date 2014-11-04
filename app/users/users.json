@@ -3,12 +3,28 @@
         "id": 0, 
         "imageUrl": "images/placeholder_user.jpg", 
         "name": "Juri Jar", 
-        "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
-    }, 
+        "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
+        "hardskill": [
+            {"tag": "JavaScript", "expertise": 34},
+            {"tag": "D3", "expertise": 45},
+            {"tag": "Angular", "expertise": 37},
+            {"tag": "Ember", "expertise": 56},
+            {"tag": "Backbone", "expertise": 50},
+            {"tag": "Grunt", "expertise": 77}
+          ]
+    },  
     { 
         "id": 1, 
         "imageUrl": "images/placeholder_user.jpg", 
         "name": "Gari Gur", 
-        "description": "Lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune"
+        "description": "Lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune",
+        "hardskill": [
+            {"tag": "JavaScript", "expertise": 54},
+            {"tag": "D3", "expertise": 25},
+            {"tag": "Angular", "expertise": 67},
+            {"tag": "Ember", "expertise": 26},
+            {"tag": "Backbone", "expertise": 80},
+            {"tag": "Grunt", "expertise": 57}
+          ]
     }
 ]
