@@ -8,6 +8,16 @@ body {
   font-family: 'HelveticaNeue';
 }
 
+.header-content {
+  background-color: #2ecc71;
+}
+
+.header {
+  width:300px;
+  margin:0px auto;
+  vertical-align: top;
+}
+
 section {
   width: 100%;
   padding: 0 7%;
@@ -39,6 +49,19 @@ section:nth-of-type(2n) {
 .center {
   width:300px;
   margin:100px auto;
+}
+
+.profile-picture-big {
+  width: 140px;
+  height: auto;
+}
+
+.profile-picture-small {
+  cursor: pointer;
+  width: 50px;
+  height: auto;
+  display: inline-block;
+  margin: 5px 10px;
 }
 
 h1 {

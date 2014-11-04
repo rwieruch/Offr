@@ -1,0 +1,14 @@
+[
+    { 
+        "id": 0, 
+        "imageUrl": "images/placeholder_user.jpg", 
+        "name": "Juri Jar", 
+        "description": "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+    }, 
+    { 
+        "id": 1, 
+        "imageUrl": "images/placeholder_user.jpg", 
+        "name": "Gari Gur", 
+        "description": "Lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune lila laune"
+    }
+]
