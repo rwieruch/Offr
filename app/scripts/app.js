@@ -13,7 +13,8 @@ angular
     'ngAnimate',
     'ngResource',
     'ngRoute',
-    'd3'
+    'd3',
+    'perfect_scrollbar'
   ])
   .config(function ($routeProvider) {
     $routeProvider

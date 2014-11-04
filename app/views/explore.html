@@ -14,14 +14,16 @@
 		        <div class="form-group">
 		          <input type="text" class="form-control" ng-model="query">
 		        </div>
-          	<ul class="search-content">
-          		<li ng-repeat="user in users | filter:{hardskill: query}">
-          			<div class="profile-small">
-	      					<img ng-click="changeSelectedUser(user)" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
-	      					<p>{{user.name}}<p>
-      					</div>
-      				</li>
-      			</ul>
+        		<perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20">
+	          	<ul>
+	          		<li ng-repeat="user in users | filter:{hardskill: query}">
+	          			<div class="profile-small">
+		      					<img ng-click="changeSelectedUser(user)" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
+		      					<p>{{user.name}}<p>
+	      					</div>
+	      				</li>	
+	      			</ul>
+      			</perfect-scrollbar>
           </div>
     		</div>
 
