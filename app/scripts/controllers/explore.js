@@ -15,4 +15,8 @@ angular.module('offrApp')
 	}, function(err){
 	    console.log('request failed');
 	});
-  }]);
+
+  $scope.changeSelectedUser = function(user) {
+    $scope.selectedUser = user;
+  }
+}]);

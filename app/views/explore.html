@@ -1,6 +1,6 @@
 <div class="users-list-content">
 	<div class="users-list">
-		<img ng-repeat="user in users" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
+		<img ng-repeat="user in users" ng-click="changeSelectedUser(user)" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
 	</div>
 </div>
 

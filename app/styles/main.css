@@ -54,7 +54,7 @@ section:nth-of-type(2n) {
 .profile-picture-big {
   width: 140px;
   height: auto;
-  margin: 10px 20px;
+  margin: 20px 20px;
 }
 
 .profile-picture-small {
@@ -62,7 +62,7 @@ section:nth-of-type(2n) {
   width: 50px;
   height: auto;
   display: inline-block;
-  margin: 5px 10px;
+  margin: 5px 5px;
 }
 
 h1 {
