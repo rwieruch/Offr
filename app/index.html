@@ -21,22 +21,12 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-        </ul>
-        <h3 class="text-muted">offr</h3>
-      </div>
 
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p>Robin Wieruch</p>
-      </div>
-    </div>
-
+    <div ng-view=""></div>
+    
+    <footer>
+      By <a href="http://www.robinwieruch.de/">Robin Wieruch</a>
+    </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -71,7 +61,6 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
 </body>
 </html>
