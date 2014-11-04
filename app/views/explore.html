@@ -7,22 +7,27 @@
 <section class="inverted">  
 	<div class="container">
 
+	
 		<div class="row">
-		  <div class="col-md-2">
-		    <img ng-src="{{selectedUser.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-big">
-		  </div>
-		  <div class="col-md-10">
-		    <h1>{{selectedUser.name}}</h1>
-				<p>{{selectedUser.description}}</p>
-		  </div>
+			  <div class="col-md-2">
+			    <img ng-src="{{selectedUser.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-big">
+			  </div>
+			  <div class="col-md-10">
+				    <h1>{{selectedUser.name}}</h1>
+						<p>{{selectedUser.description}}</p>
+			  </div>
 		</div>
 
 		<div class="row">
 		  <div class="col-md-6">
-		    <p>{{selectedUser.description}}</p>
+		  	<div class="tile">
+			    <div tag-bar-chart hardskill="hardskill"></div>
+			  </div>
 		  </div>
 		  <div class="col-md-6">
-		    <div tag-bar-chart hardskill="hardskill"></div>
+		  	<div class="tile">
+			    <div tag-bar-chart hardskill="hardskill"></div>
+			  </div>
 		  </div>
 		</div>
 

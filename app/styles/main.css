@@ -88,6 +88,12 @@ p {
   color: #C3CAD9;
 }
 
+.inverted p {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #fff;
+}
+
 a {
   font-weight: 700;
   color: #373B44;
@@ -96,15 +102,21 @@ a {
 }
 
 a:hover { 
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 a:active {
   top: 1px;
 }
 
-.default:nth-of-type(2n-1) a {
+.default:nth-of-type(1+2n) a {
   color: #2ecc71;
+}
+
+.tile {
+  padding: 5px;
+  background: rgba(0,0,0,0.35);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 footer {

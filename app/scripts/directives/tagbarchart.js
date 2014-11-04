@@ -16,17 +16,6 @@ angular.module('offrApp')
       link: function(scope, element, attrs) {
         d3Service.d3().then(function(d3) {
 
-          // Hard coded data
-          /*scope.data = [
-            {tag: 'JavaScript', expertise: 34},
-            {tag: 'D3', expertise: 45},
-            {tag: 'Angular', expertise: 37},
-            {tag: 'Ember', expertise: 56},
-            {tag: 'Backbone', expertise: 50},
-            {tag: 'Grunt', expertise: 77}
-          ];*/
-          
-
           scope.hardskill.forEach(function(d) {
             d.expertise = +d.expertise;
           });
@@ -62,11 +51,13 @@ angular.module('offrApp')
 				  x.domain(scope.hardskill.map(function(d) { return d.tag; }));
 				  y.domain([0, d3.max(scope.hardskill, function(d) { return d.expertise; })]);
 
-				  svg.append("g")
+				  // x axis content
+				  var xAxis = svg.append("g")
 				      .attr("class", "x axis")
 				      .attr("transform", "translate(0," + height + ")")
-				      .call(xAxis)
-           	.selectAll("text")  
+				      .call(xAxis);
+
+           xAxis.selectAll("text")  
 	            .style("text-anchor", "end")
 	            .attr("dx", "-.8em")
 	            .attr("dy", ".15em")
@@ -74,11 +65,18 @@ angular.module('offrApp')
 	                return "rotate(-65)" 
               });
 
+			    xAxis.append("text")
+			      .attr("class", "label-big")
+			      .attr("x", width/2)
+			      .attr("y", -height-22)
+			      .style("text-anchor", "middle")
+			      .text("Skills");
+
+	        // y axis content
 				  var yAxis = svg.append("g")
 				      .attr("class", "y axis")
 				      .call(yAxis);
 				  
-				  // append y axis labels
 			    yAxis.append("text")
 			    	.attr("class", "label-mid")
 			      .attr("transform", "rotate(-90)")
