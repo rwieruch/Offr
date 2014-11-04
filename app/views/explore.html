@@ -1,15 +1,19 @@
-<div class="header-content">
-	<div class="header">
-		<img src="../images/placeholder_user.jpg" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
-		<img src="../images/placeholder_user.jpg" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
-		<img src="../images/placeholder_user.jpg" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
+<div class="users-list-content">
+	<div class="users-list">
+		<img ng-repeat="user in users" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
 	</div>
 </div>
 
 <section>  
   <div class="content">
-    <img src="../images/placeholder_user.jpg" alt="User Profile Picture" class="img-circle img-responsive profile-picture-big">
-    <h1>Juri Jaris</h1>
-	<p>aefqefwfew</p>
+	<div class="row">
+	  <div class="col-md-2">
+	    <img ng-src="{{selectedUser.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-big">
+	  </div>
+	  <div class="col-md-8">
+	    <h1>{{selectedUser.name}}</h1>
+		<p>{{selectedUser.description}}</p>
+	  </div>
+	</div>
  </div>
 </section>

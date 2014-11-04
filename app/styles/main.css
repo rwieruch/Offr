@@ -8,11 +8,11 @@ body {
   font-family: 'HelveticaNeue';
 }
 
-.header-content {
+.users-list-content {
   background-color: #2ecc71;
 }
 
-.header {
+.users-list {
   width:300px;
   margin:0px auto;
   vertical-align: top;
@@ -54,6 +54,7 @@ section:nth-of-type(2n) {
 .profile-picture-big {
   width: 140px;
   height: auto;
+  margin: 10px 20px;
 }
 
 .profile-picture-small {

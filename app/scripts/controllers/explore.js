@@ -8,10 +8,11 @@
  * Controller of the offrApp
  */
 angular.module('offrApp')
-  .controller('ExploreCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('ExploreCtrl', ['$scope', 'User', function($scope, User) {
+	User.query(function(data){
+	    $scope.users = data;
+	    $scope.selectedUser = data[0];      
+	}, function(err){
+	    console.log('request failed');
+	});
+  }]);
