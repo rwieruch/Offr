@@ -16,65 +16,19 @@ angular.module('offrApp')
       link: function(scope, element, attrs) {
         d3Service.d3().then(function(d3) {
 
-          scope.$watch('hardskill', function (newVal, oldVal) {
-				  	x.domain(newVal.map(function(d) { return d.tag; }));
+        	var margin = {top: 40, right: 20, bottom: 50, left: 40},
+				    	width = 525 - margin.left - margin.right,
+				    	height = 300 - margin.top - margin.bottom;
 
-				   svg.select("x.axis")
-				        .call(xAxis);
-
-          	// new data
-            var bars = svg.selectAll(".bar")
-             .data(newVal);
-
- 				    // enter
-				    bars.enter()
-				        .append("rect")
-				        .attr("class", "bar");
-
-				    // exit 
-				    bars.exit()
-				    .transition()
-				    .duration(300)
-				    .ease("exp")
-				        .attr("height", 0)
-				        .remove();
-
-						// update 
-				    bars.on("mouseover", function() {
-			        d3.select(this)
-			          .style("fill", "orangered")
-						}).on("mouseout", function() {
-					    d3.select(this)
-					      .transition()
-					      .duration(250)
-					      .style("fill", "orange");
-						})
-				    .transition()
-				    .duration(300)
-				    .ease("quad")
-				      .attr("class", "bar")
-				      .attr("x", function(d) { return x(d.tag); })
-				      .attr("width", x.rangeBand())
-				      .attr("y", function(d) { return y(d.expertise); })
-				      .attr("height", function(d) { return height - y(d.expertise); });
-
-          });
-
-          scope.hardskill.forEach(function(d) {
-            d.expertise = +d.expertise;
-          });
-
-          var margin = {top: 40, right: 20, bottom: 50, left: 40},
-				    width = 525 - margin.left - margin.right,
-				    height = 300 - margin.top - margin.bottom;
-
-					var formatPercent = d3.format("%");
+					//var formatPercent = d3.format("%");
 
 					var x = d3.scale.ordinal()
 					    .rangeRoundBands([0, width], .1);
 
 					var y = d3.scale.linear()
 					    .range([height, 0]);
+
+			  	y.domain([0, d3.max(scope.hardskill, function(d) { return d.expertise; })]);
 
 					var xAxis = d3.svg.axis()
 					    .scale(x)
@@ -92,22 +46,11 @@ angular.module('offrApp')
 					  .append("g")
 					    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-				  x.domain(scope.hardskill.map(function(d) { return d.tag; }));
-				  y.domain([0, d3.max(scope.hardskill, function(d) { return d.expertise; })]);
-
-				  // x axis content
+ 				  // x axis content
 				  var xAxisContent = svg.append("g")
 				      .attr("class", "x axis")
 				      .attr("transform", "translate(0," + height + ")")
 				      .call(xAxis);
-
-           xAxisContent.selectAll("text")  
-	            .style("text-anchor", "end")
-	            .attr("dx", "-.8em")
-	            .attr("dy", ".15em")
-	            .attr("transform", function(d) {
-	                return "rotate(-35)" 
-              });
 
 			    xAxisContent.append("text")
 			      .attr("class", "label-big")
@@ -147,23 +90,63 @@ angular.module('offrApp')
 			      .style("text-anchor", "start")
 			      .text("poor");
 
-				  svg.selectAll(".bar")
-				      .data(scope.hardskill)
-				    .enter().append("rect")
-				      .attr("class", "bar")
-				      .attr("x", function(d) { return x(d.tag); })
-				      .attr("width", x.rangeBand())
-				      .attr("y", function(d) { return y(d.expertise); })
-				      .attr("height", function(d) { return height - y(d.expertise); })
-			      .on("mouseover", function() {
-			        d3.select(this)
-			          .style("fill", "orangered")
-						}).on("mouseout", function() {
-					    d3.select(this)
-					      .transition()
-					      .duration(250)
-					      .style("fill", "orange");
-						});
+          scope.$watch('hardskill', function (newVal, oldVal) {
+	          newVal.forEach(function(d) {
+	            d.expertise = +d.expertise;
+	          });
+
+          	// update x axis
+					  x.domain(newVal.map(function(d) { return d.tag; }));
+					  svg.select(".x.axis")
+					    	.transition()
+	    					.duration(300)
+					      .call(xAxis);
+
+					  // rotate x axis labels
+            xAxisContent.selectAll("text")  
+		            .style("text-anchor", "end")
+		            .attr("dx", "-.8em")
+		            .attr("dy", ".15em")
+		            .attr("transform", function(d) {
+		                return "rotate(-35)" 
+	              });
+
+          	// new data
+            var bars = svg.selectAll(".bar")
+             		.data(newVal);
+            
+            // enter new
+            bars.enter()
+				        .append("rect")
+				        .attr("class", "bar");
+
+				    // exit old
+				    bars.exit()
+				    .transition()
+				    .duration(300)
+				    .ease("exp")
+				        .attr("height", 0)
+				        .remove();
+
+						// update all
+				    bars.on("mouseover", function() {
+				        d3.select(this)
+				          .style("fill", "orangered")
+							}).on("mouseout", function() {
+						    d3.select(this)
+						      .transition()
+						      .duration(250)
+						      .style("fill", "orange");
+							})
+					    .transition().delay(300).duration(300).ease("quad") // first adjust width and position
+								.attr("x", function(d) { return x(d.tag); })
+								.attr("width", x.rangeBand())
+					    .transition().delay(600).duration(300).ease("quad") // second adjust height
+					      .attr("class", "bar")
+					      .attr("y", function(d) { return y(d.expertise); })
+					      .attr("height", function(d) { return height - y(d.expertise); });
+
+          });
 
 	      });
 	    }
