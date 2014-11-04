@@ -20,6 +20,10 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/explore', {
+        templateUrl: 'views/explore.html',
+        controller: 'ExploreCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

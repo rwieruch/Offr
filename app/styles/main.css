@@ -18,7 +18,7 @@ section {
   height: 100vh;
 }
 
-section:nth-of-type(2n-1) {
+section:nth-of-type(2n) {
   background-color: #2ecc71;
 }
 
@@ -69,19 +69,19 @@ a:active {
   top: 1px;
 }
 
-section:nth-of-type(2n) a {
+section:nth-of-type(2n-1) a {
   color: #2ecc71;
 }
 
 footer {
   padding: 1% 5%;
   text-align:center;
-  background-color: #2ecc71;
+  background-color: #373B44;
   color: white;
 }
 
 footer a {
-  color: #373B44;
+  color: #2ecc71;
   font-weight: 500;
   text-decoration: none !important;
 }
