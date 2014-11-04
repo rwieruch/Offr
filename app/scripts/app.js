@@ -12,7 +12,8 @@ angular
   .module('offrApp', [
     'ngAnimate',
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'd3'
   ])
   .config(function ($routeProvider) {
     $routeProvider

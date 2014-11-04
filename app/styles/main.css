@@ -9,7 +9,7 @@ body {
 }
 
 .users-list-content {
-  background-color: #2ecc71;
+  background-color: #373B44;
 }
 
 .users-list {
@@ -18,7 +18,7 @@ body {
   vertical-align: top;
 }
 
-section {
+.default {
   width: 100%;
   padding: 0 7%;
   display: table;
@@ -28,7 +28,17 @@ section {
   height: 100vh;
 }
 
-section:nth-of-type(2n) {
+.inverted {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  background-color: #2ecc71;
+  height: 100vh;
+}
+
+.default:nth-of-type(2n) {
   background-color: #2ecc71;
 }
 
@@ -93,7 +103,7 @@ a:active {
   top: 1px;
 }
 
-section:nth-of-type(2n-1) a {
+.default:nth-of-type(2n-1) a {
   color: #2ecc71;
 }
 
