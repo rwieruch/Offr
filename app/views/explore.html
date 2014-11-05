@@ -12,8 +12,9 @@
         <div class="col-md-2">
           <div class="tile">
 		        <div class="form-group">
-		          <input type="text" class="form-control" ng-model="query">
+		          <input type="text" class="form-control" ng-model="query" placeholder="search...">
 		        </div>
+
         		<perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20">
 	          	<ul>
 	          		<li ng-repeat="user in users | filter:{hardskill: query}">

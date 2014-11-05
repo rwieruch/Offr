@@ -4,6 +4,17 @@
   border-radius: 0px;
 }
 
+.form-control {
+  background-color:#666;
+  color: #FFF;
+  border: 1px solid #666;
+  border-radius: 20px;
+}
+
+.form-control::-webkit-input-placeholder { 
+  color: #fff; 
+}
+
 /* Own */
 
 * {
