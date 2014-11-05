@@ -64,13 +64,13 @@ angular.module('offrApp')
 				      .call(yAxis);
 				  
 			    yAxisContent.append("text")
-			    	.attr("class", "label-mid")
-			      .attr("transform", "rotate(-90)")
-			      .attr("x", -height/2)
-			      .attr("y", -38)
-			      .attr("dy", ".71em")
-			      .style("text-anchor", "middle")
-			      .text("Expertise");
+				    	.attr("class", "label-mid")
+				      .attr("transform", "rotate(-90)")
+				      .attr("x", -height/2)
+				      .attr("y", -38)
+				      .attr("dy", ".71em")
+				      .style("text-anchor", "middle")
+				      .text("Expertise");
 
   			  yAxisContent.append("text")
 			      .attr("class", "label-small")
@@ -215,6 +215,8 @@ angular.module('offrApp')
 
           scope.$watch('hovered', function (newVal, oldVal) {
           	console.log(newVal);
+
+
           });
 
 	      });
