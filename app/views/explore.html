@@ -19,7 +19,7 @@
 	          	<ul>
 	          		<li ng-repeat="user in users | filter:{hardskill: query}">
 	          			<div class="profile-small">
-		      					<img ng-click="changeSelectedUser(user)" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
+		      					<img ng-click="changeSelectedUser(user)" ng-mouseover="mouseOverUser(user)" ng-mouseleave="mouseLeaveUser()" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
 		      					<p>{{user.name}}<p>
 	      					</div>
 	      				</li>	
@@ -44,7 +44,7 @@
 					<div class="row">
 					  <div class="col-md-7">
 					  	<div class="tile">
-						    <div tag-bar-chart hardskill="hardskill"></div>
+						    <div tag-bar-chart hardskill="hardskill" hovered="hovered"></div>
 						  </div>
 					  </div>
 					  <div class="col-md-4">

@@ -11,7 +11,8 @@ angular.module('offrApp')
     return {
       restrict: 'EA',
       scope: { 
-      	hardskill: '=hardskill'
+      	hardskill: '=hardskill',
+      	hovered: '=hovered'
       },
       link: function(scope, element, attrs) {
         d3Service.d3().then(function(d3) {
@@ -210,6 +211,10 @@ angular.module('offrApp')
 								    return y(d.expertise)+20;
 								});
 
+          });
+
+          scope.$watch('hovered', function (newVal, oldVal) {
+          	console.log(newVal);
           });
 
 	      });

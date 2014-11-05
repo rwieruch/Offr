@@ -21,4 +21,12 @@ angular.module('offrApp')
     $scope.selectedUser = user;
     $scope.hardskill = user.hardskill;  
   }
+
+  $scope.hovered = null;
+  $scope.mouseOverUser = function(user) {
+    $scope.hovered = user.hardskill;
+	}
+  $scope.mouseLeaveUser = function() {
+    $scope.hovered = null;
+	}
 }]);
