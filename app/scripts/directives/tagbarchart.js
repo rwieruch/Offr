@@ -89,21 +89,24 @@ angular.module('offrApp')
 			      .text("poor");
 
           scope.$watch('hardskill', function (newVal, oldVal) {
+
 	          newVal.forEach(function(d) {
 	            d.expertise = +d.expertise;
 	          });
 
-						// update y axis
-  			  	y.domain([0, d3.max(scope.hardskill, function(d) { return d.expertise; })]);
+						// create or update y axis
+  			  	y.domain([0, 100]);
 					  svg.select(".y.axis")
 					    	.transition()
+					    	.delay(300)
 	    					.duration(300)
 					      .call(yAxis);
 
-          	// update x axis
+          	// create or update x axis
 					  x.domain(newVal.map(function(d) { return d.tag; }));
 					  svg.select(".x.axis")
 					    	.transition()
+					    	.delay(300)
 	    					.duration(300)
 					      .call(xAxis);
 
@@ -116,31 +119,19 @@ angular.module('offrApp')
 		                return "rotate(-35)" 
 	              });
 
-          	// update bars
+          	// inject new data to bars
             var bars = svg.selectAll(".bar")
              		.data(newVal);
 
-				    // exit old
+				    // remove
 				    bars.exit()
-						    .transition()
-						    .duration(300)
-						    .ease("exp")
-						    		.attr("y", function(d) { return y(0); })
-						        .attr("height", 0)
-						        .remove();
+				    	.transition().duration(300).ease("exp")
+				    		.attr("y", function(d) { return y(0); })
+				        .attr("height", 0)
+				        .remove();
 
-						// update all
+						// update old
 				    bars
-				    	.on("mouseover", function() {
-				        d3.select(this)
-				          .style("fill", "orangered")
-							})
-				    	.on("mouseout", function() {
-						    d3.select(this)
-						      .transition()
-						      .duration(250)
-						      .style("fill", "orange");
-							})
 					    .transition().delay(300).duration(300).ease("quad") // first adjust width and position
 								.attr("x", function(d) { return x(d.tag); })
 								.attr("width", x.rangeBand())
@@ -151,29 +142,29 @@ angular.module('offrApp')
 
             // enter new
             bars.enter()
-				        .append("rect")
+			        .append("rect")
 				        .attr("class", "bar")
 					      .attr("y", function(d) { return y(0); })
 					      .attr("height", function(d) { return height - y(0); })
 								.attr("x", function(d) { return x(d.tag); })
-								.attr("width", x.rangeBand());
-						
-						bars.on("mouseover", function() {
-					        d3.select(this)
-					          .style("fill", "orangered")
-								})
-					    	.on("mouseout", function() {
-							    d3.select(this)
-							      .transition()
-							      .duration(250)
-							      .style("fill", "orange");
-								});
-
-				    bars
+								.attr("width", x.rangeBand())
 					    .transition().delay(900).duration(300).ease("quad")
 					      .attr("class", "bar")
 					      .attr("y", function(d) { return y(d.expertise); })
 					      .attr("height", function(d) { return height - y(d.expertise); });
+
+					  // give all bars mouse events
+				    bars
+				    	.on("mouseover", function() {
+				        d3.select(this)
+				          .style("fill", "orangered")
+							})
+				    	.on("mouseout", function() {
+						    d3.select(this)
+						      .transition()
+						      .duration(250)
+						      .style("fill", "orange");
+							});
 
 					  // update labels
 				    var bartext = svg.selectAll(".bartext")
@@ -199,24 +190,25 @@ angular.module('offrApp')
 
             // enter new
             bartext.enter()
-				        .append("text")
+				      .append("text")
 				        .attr("class", "bartext")
 				        .attr("text-anchor", "middle")
 								.attr("fill", "white")
+								.attr("opacity", 0)
 								.attr("x", function(d,i) {
 								    return x(d.tag)+x.rangeBand()/2;
 								})
 								.attr("y", function(d,i) {
 								    return y(0)+20;
 								})
-							.transition().delay(900).duration(300).ease("quad")
-								.attr("y", function(d,i) {
-								    return y(d.expertise)+20;
-								})
 								.text(function(d){
 								     return d.expertise;
+								})
+							.transition().delay(900).duration(300).ease("quad")
+								.attr("opacity", 1)
+								.attr("y", function(d,i) {
+								    return y(d.expertise)+20;
 								});
-
 
           });
 
