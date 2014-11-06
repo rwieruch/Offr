@@ -33,7 +33,7 @@ angular.module('offrApp')
 				    	height = 300 - margin.top - margin.bottom;
 
 			    var color = d3.scale.ordinal()
-    					.range(["#FFA500", "#FF4500", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    					.range(["#FFA500", "#B27500", "#7E5300"]);
 
 					var svg = d3.select(element[0]).append('svg')
 					    .attr("width", width + margin.left + margin.right)
@@ -120,7 +120,20 @@ angular.module('offrApp')
 							users.push(newVal);
 						}
 
-						// TODO: possible duplicate
+						adjustChart();
+					});
+
+          scope.$watch('selecteduser', function (newVal, oldVal) {
+						if (angular.isUndefined(newVal) || null) return;
+
+						users = [];
+						users.push(newVal);
+
+						adjustChart();
+					});
+
+					function adjustChart() {
+
 				    var data = [];
 				    for(var i in users) {
 				    	var id = users[i].id;
@@ -158,7 +171,7 @@ angular.module('offrApp')
 						var bar = svg.selectAll(".bars")
 						    .data(nested);
 
-  		    	svg.selectAll("rect").remove(); // TODO ?
+  		    	svg.selectAll("rect").remove(); // Remove all old rects
 
 					  bar.enter().append("g")
 					    .attr("class", function(d){ return d.key;})
@@ -176,8 +189,7 @@ angular.module('offrApp')
 						    .attr("height", function(d) { 
 						             return height - y(d.expertise); 
 						     });
-
-					});
+					}
 
       });
     }
