@@ -20,14 +20,6 @@ angular.module('offrApp')
         	var users = [];
         	users.push(scope.selecteduser);
 
-			    var data = [];
-			    for(var i in users) {
-			    	var id = users[i].id;
-				    for(var m in users[i].hardskill) {
-							data.push({ _id: id, "tag": users[i].hardskill[m].tag, "expertise": users[i].hardskill[m].expertise })
-				    }
-				  }
-
         	var margin = {top: 40, right: 20, bottom: 50, left: 40},
 				    	width = 525 - margin.left - margin.right,
 				    	height = 300 - margin.top - margin.bottom;
@@ -131,8 +123,6 @@ angular.module('offrApp')
 						if(mode === 'selecteduser')
 							var delay = 300;
 
-							console.log(delay);		
-
 				    var data = [];
 				    for(var i in users) {
 				    	var id = users[i].id;
@@ -170,13 +160,14 @@ angular.module('offrApp')
 					    	.data(nested)
 					    .enter().append("g")
 					    	.attr("class", function(d){ return d.key;})
-					    	.style("fill", function(d, i) { console.log(d.key); return color(i); });
+					    	.style("fill", function(d, i) { return color(i); });
 
   		    	svg.selectAll("rect").remove(); // Remove all old rects
 
-						bar.selectAll("rect").append("rect")
+						bar.selectAll("rect")
 						    .data(function(d) { return d.values; })
 						  .enter().append("rect")
+						  	.attr("class", "rect")
 						    .attr("transform", function(d) {
 						          return "translate(" + x0(d.tag) + ",0)"; 
 						     })
@@ -188,6 +179,34 @@ angular.module('offrApp')
 						    .attr("width", x1.rangeBand())
 						    .attr("y", function(d) { return y(d.expertise); })
 						    .attr("height", function(d) { return height - y(d.expertise); });
+
+				    svg.selectAll(".bartext").remove(); // Remove all old bartext
+
+				    var bartext = bar.selectAll(".bartext")
+							.data(function(d) { return d.values; })
+						.enter().append("text")
+			        .attr("class", "bartext")
+			        .attr("text-anchor", "middle")
+							.attr("fill", "white")
+							.attr("opacity", 0)
+							.attr("x", function(d,i) {
+									if(nested.length > 1) {
+										return x0(d.tag)+x0.rangeBand()/2+x1(d._id)-x1.rangeBand()/2;
+							    } else {
+										return x0(d.tag)+x0.rangeBand()/2+x1(d._id);
+							    }
+							})
+							.attr("y", function(d,i) {
+							    return y(0)+20;
+							})
+							.text(function(d){
+						      return d.expertise;
+							})
+						.transition().duration(delay).ease("quad")
+							.attr("opacity", 1)
+							.attr("y", function(d,i) {
+							    return y(d.expertise)+20;
+							});
 					}
 
       });

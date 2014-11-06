@@ -12,7 +12,6 @@ angular.module('offrApp')
 	User.query(function(data){
 	    $scope.users = data;;  
 	    $scope.selecteduser = data[0];  
-	    console.log($scope.selecteduser);
 	    $scope.hardskill = data[0].hardskill;   
 	}, function(err){
 	    console.log('request failed');
