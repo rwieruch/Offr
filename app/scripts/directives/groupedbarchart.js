@@ -175,7 +175,7 @@ angular.module('offrApp')
 
 					  bar.enter().append("g")
 					    .attr("class", function(d){ return d.key;})
-					    .style("fill", function(d) { return color(d.key); });
+					    .style("fill", function(d, i) { console.log(d.key); return color(i); });
 
 						bar.selectAll("rect").append("rect")
 							    .data(function(d) { return d.values; })

@@ -17,7 +17,7 @@
 
         		<perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20">
 	          	<ul>
-	          		<li ng-repeat="user in users | filter:{hardskill: query}">
+	          		<li ng-repeat="user in users | filter:{hardskill: query}" ng-style="{ backgroundColor: selecteduser == user ? '#373B44' : '' }">
 	          			<div class="profile-small">
 		      					<img ng-click="changeSelectedUser(user)" ng-mouseover="mouseOverUser(user)" ng-mouseleave="mouseLeaveUser()" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
 		      					<p>{{user.name}}<p>

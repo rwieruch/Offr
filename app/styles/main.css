@@ -5,9 +5,9 @@
 }
 
 .form-control {
-  background-color:#666;
+  background-color:#373B44;
   color: #FFF;
-  border: 1px solid #666;
+  border: 1px solid #373B44;
   border-radius: 20px;
 }
 
@@ -90,7 +90,7 @@ ul {
 }
 
 .profile-small {
-  margin: 5px 10px;
+  padding: 10px;
 }
 
 .profile-container {
