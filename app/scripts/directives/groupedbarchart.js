@@ -20,12 +20,14 @@ angular.module('offrApp')
         	var users = [];
         	users.push(scope.selecteduser);
 
+        	console.log('start');
+
         	var margin = {top: 40, right: 20, bottom: 50, left: 40},
 				    	width = 525 - margin.left - margin.right,
 				    	height = 300 - margin.top - margin.bottom;
 
 			    var color = d3.scale.ordinal()
-    					.range(["#FFA500", "#B27500", "#7E5300"]);
+    					.range(["#FFA500", "#FF4500"]);
 
 					var svg = d3.select(element[0]).append('svg')
 					    .attr("width", width + margin.left + margin.right)
@@ -97,6 +99,8 @@ angular.module('offrApp')
           scope.$watch('hovered', function (newVal, oldVal) {
 						if (angular.isUndefined(newVal)) return;
 
+						console.log('hovered');
+
 						if(newVal === null) {
 							if(users.length > 1)
 								users.pop();
@@ -109,6 +113,8 @@ angular.module('offrApp')
 
           scope.$watch('selecteduser', function (newVal, oldVal) {
 						if (angular.isUndefined(newVal) || null) return;
+
+						console.log('selecteduser');
 
 						users = [];
 						users.push(newVal);
@@ -181,8 +187,8 @@ angular.module('offrApp')
 						    .attr("y", function(d) { return y(d.expertise); })
 						    .attr("height", function(d) { return height - y(d.expertise); });
 
-						    bar.selectAll("rect")
-						    				    	.on("mouseover", function() {
+				    bar.selectAll("rect")
+				    	.on("mouseover", function() {
 				        d3.select(this)
 				          .style("fill", "#FF4500")
 							})
