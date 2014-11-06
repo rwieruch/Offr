@@ -22,8 +22,8 @@ angular.module('offrApp')
 
         	console.log('start');
 
-        	var margin = {top: 40, right: 20, bottom: 50, left: 40},
-				    	width = 525 - margin.left - margin.right,
+        	var margin = {top: 40, right: 40, bottom: 50, left: 40},
+				    	width = 630 - margin.left - margin.right,
 				    	height = 300 - margin.top - margin.bottom;
 
 			    var color = d3.scale.ordinal()
