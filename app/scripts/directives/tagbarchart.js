@@ -11,14 +11,13 @@ angular.module('offrApp')
     return {
       restrict: 'EA',
       scope: { 
-      	hardskill: '=hardskill',
-      	hovered: '=hovered'
+      	hardskill: '=hardskill'
       },
       link: function(scope, element, attrs) {
         d3Service.d3().then(function(d3) {
 
         	var margin = {top: 40, right: 20, bottom: 50, left: 40},
-				    	width = 525 - margin.left - margin.right,
+				    	width = 350 - margin.left - margin.right,
 				    	height = 300 - margin.top - margin.bottom;
 
 					//var formatPercent = d3.format("%");
@@ -91,6 +90,8 @@ angular.module('offrApp')
 
           scope.$watch('hardskill', function (newVal, oldVal) {
 
+						if (angular.isUndefined(newVal) || newVal === null) return;
+
 	          newVal.forEach(function(d) {
 	            d.expertise = +d.expertise;
 	          });
@@ -158,13 +159,13 @@ angular.module('offrApp')
 				    bars
 				    	.on("mouseover", function() {
 				        d3.select(this)
-				          .style("fill", "orangered")
+				          .style("fill", "#FF4500")
 							})
 				    	.on("mouseout", function() {
 						    d3.select(this)
 						      .transition()
 						      .duration(250)
-						      .style("fill", "orange");
+						      .style("fill", "#FFA500");
 							});
 
 					  // update labels
@@ -210,12 +211,6 @@ angular.module('offrApp')
 								.attr("y", function(d,i) {
 								    return y(d.expertise)+20;
 								});
-
-          });
-
-          scope.$watch('hovered', function (newVal, oldVal) {
-          	console.log(newVal);
-
 
           });
 

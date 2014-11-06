@@ -10,21 +10,22 @@
 angular.module('offrApp')
   .controller('ExploreCtrl', ['$scope', 'User', function($scope, User) {
 	User.query(function(data){
-	    $scope.users = data;
-	    $scope.selectedUser = data[0];  
+	    $scope.users = data;;  
+	    $scope.selecteduser = data[0];  
+	    console.log($scope.selecteduser);
 	    $scope.hardskill = data[0].hardskill;   
 	}, function(err){
 	    console.log('request failed');
 	});
 
   $scope.changeSelectedUser = function(user) {
-    $scope.selectedUser = user;
+    $scope.selecteduser = user;
     $scope.hardskill = user.hardskill;  
   }
 
   $scope.hovered = null;
   $scope.mouseOverUser = function(user) {
-    $scope.hovered = user.hardskill;
+    $scope.hovered = user;
 	}
   $scope.mouseLeaveUser = function() {
     $scope.hovered = null;

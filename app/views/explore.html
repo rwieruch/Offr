@@ -1,6 +1,6 @@
 <!--<div class="users-list-content">
 	<div class="users-list">
-		<img ng-repeat="user in users" ng-click="changeSelectedUser(user)" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
+		<img ng-repeat="user in users" ng-click="changeSelecteduser(user)" ng-src="{{user.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-small">
 	</div>
 </div>
 -->
@@ -32,11 +32,11 @@
 					<div class="tile profile-container">
 						<div class="row">
 						  <div class="col-md-2">
-						    <img ng-src="{{selectedUser.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-big">
+						    <img ng-src="{{selecteduser.imageUrl}}" alt="User Profile Picture" class="img-circle img-responsive profile-picture-big">
 						  </div>
 						  <div class="col-md-10">
-							    <h1>{{selectedUser.name}}</h1>
-									<p>{{selectedUser.description | limitTo : 200}} {{selectedUser.description.length > 200 ? '...' : ''}} - <a href="">Details (make it collapsable</a></p>
+							    <h1>{{selecteduser.name}}</h1>
+									<p>{{selecteduser.description | limitTo : 200}} {{selecteduser.description.length > 200 ? '...' : ''}} - <a href="">Details (make it collapsable</a></p>
 						  </div>
 						</div>
 					</div>
@@ -44,13 +44,13 @@
 					<div class="row">
 					  <div class="col-md-7">
 					  	<div class="tile">
-						    <div tag-bar-chart hardskill="hardskill" hovered="hovered"></div>
+					  		<div grouped-bar-chart selecteduser="selecteduser" hovered="hovered"></div>
 						  </div>
 					  </div>
-					  <div class="col-md-4">
-					  	<!--<div class="tile">
-
-						  </div>-->
+					  <div class="col-md-5">
+					  	<div class="tile">
+					  		<div tag-bar-chart hardskill="hardskill"></div>>
+						  </div>
 					  </div>
 					</div>
 				</div>
