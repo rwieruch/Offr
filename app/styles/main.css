@@ -93,6 +93,10 @@ ul {
   margin: 5px 10px;
 }
 
+.profile-container {
+  height: 230px;
+}
+
 h1 {
   font-size: 3em;
   display: block;
