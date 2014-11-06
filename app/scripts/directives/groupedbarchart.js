@@ -41,19 +41,11 @@ angular.module('offrApp')
 					  .append("g")
 					    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	      	data.forEach(function(d) {
-					  d.expertise = +d.expertise;
-					});
-
 					// initialization
 					var x0 = d3.scale.ordinal().rangeRoundBands([0, width], 0.1); 
 					var x1 = d3.scale.ordinal();
 					var y  = d3.scale.linear().range([height, 0]);
 
-					// once you have the data
-					x0.domain(data.map( function(d) { return d.tag; } ));
-					x1.domain(data.map(function(d) { return d._id; } ))
-					       .rangeRoundBands([0, x0.rangeBand() ], 0);
 					y.domain([0,100]);
 
 					var xAxis = d3.svg.axis()
@@ -120,7 +112,7 @@ angular.module('offrApp')
 							users.push(newVal);
 						}
 
-						adjustChart();
+						adjustChart('hovered');
 					});
 
           scope.$watch('selecteduser', function (newVal, oldVal) {
@@ -129,10 +121,17 @@ angular.module('offrApp')
 						users = [];
 						users.push(newVal);
 
-						adjustChart();
+						adjustChart('selecteduser');
 					});
 
-					function adjustChart() {
+					function adjustChart(mode) {
+
+						if(mode === 'hovered')
+							var delay = 0;
+						if(mode === 'selecteduser')
+							var delay = 300;
+
+							console.log(delay);		
 
 				    var data = [];
 				    for(var i in users) {
@@ -151,6 +150,7 @@ angular.module('offrApp')
 						x1.domain(data.map(function(d) { return d._id; } ))
 					       .rangeRoundBands([0, x0.rangeBand() ], 0);
 					  svg.select(".x.axis")
+  					  	.transition().duration(delay).ease("quad")
 					      .call(xAxis);
 
 					  // rotate x axis labels
@@ -166,29 +166,28 @@ angular.module('offrApp')
 					    .key(function(d) { return d._id; })
 					    .entries(data);
 
-					  console.log(nested);
-
 						var bar = svg.selectAll(".bars")
-						    .data(nested);
+					    	.data(nested)
+					    .enter().append("g")
+					    	.attr("class", function(d){ return d.key;})
+					    	.style("fill", function(d, i) { console.log(d.key); return color(i); });
 
   		    	svg.selectAll("rect").remove(); // Remove all old rects
 
-					  bar.enter().append("g")
-					    .attr("class", function(d){ return d.key;})
-					    .style("fill", function(d, i) { console.log(d.key); return color(i); });
-
 						bar.selectAll("rect").append("rect")
-							    .data(function(d) { return d.values; })
+						    .data(function(d) { return d.values; })
 						  .enter().append("rect")
 						    .attr("transform", function(d) {
 						          return "translate(" + x0(d.tag) + ",0)"; 
 						     })
 						    .attr("x", function(d) { return x1(d._id); })
+						    // before transition attr
+						    .attr("y", function(d) { return y(0); })
+						    .attr("height", function(d) { return height - y(0); })
+					  	.transition().duration(delay).ease("quad")
 						    .attr("width", x1.rangeBand())
 						    .attr("y", function(d) { return y(d.expertise); })
-						    .attr("height", function(d) { 
-						             return height - y(d.expertise); 
-						     });
+						    .attr("height", function(d) { return height - y(d.expertise); });
 					}
 
       });
