@@ -125,6 +125,7 @@ angular.module('offrApp')
 
 				    var data = [];
 				    for(var i in users) {
+				    	console.log(users[i]);
 				    	var id = users[i].id;
 					    for(var m in users[i].hardskill) {
 								data.push({ _id: id, "tag": users[i].hardskill[m].tag, "expertise": users[i].hardskill[m].expertise })
@@ -179,6 +180,18 @@ angular.module('offrApp')
 						    .attr("width", x1.rangeBand())
 						    .attr("y", function(d) { return y(d.expertise); })
 						    .attr("height", function(d) { return height - y(d.expertise); });
+
+						    bar.selectAll("rect")
+						    				    	.on("mouseover", function() {
+				        d3.select(this)
+				          .style("fill", "#FF4500")
+							})
+				    	.on("mouseout", function() {
+						    d3.select(this)
+						      .transition()
+						      .duration(250)
+						      .style("fill", "#FFA500");
+							});
 
 				    svg.selectAll(".bartext").remove(); // Remove all old bartext
 
