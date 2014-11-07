@@ -25,6 +25,9 @@ angular.module('offrApp')
 					    .outerRadius(radius - 10)
 					    .innerRadius(0);
 
+	       	var arcOver = d3.svg.arc()
+        			.outerRadius(radius - 20);
+
 					var pie = d3.layout.pie()
 					    .sort(null)
 					    .value(function(d) { return d.population; });
@@ -48,7 +51,20 @@ angular.module('offrApp')
 				  var g = svg.selectAll(".arc")
 				      .data(pie(data))
 				    .enter().append("g")
-				      .attr("class", "arc");
+				      .attr("class", "arc")				              
+				    .on("mouseover", function(d) {
+		            d3.select(this).select("path")
+		            		.style("fill", "#FF4500")
+		            	  .transition()
+		                .duration(300)
+		                .attr("d", arcOver);
+		        })
+		        .on("mouseout", function(d, i) {
+		            d3.select(this).select("path").transition()
+		               .duration(300)
+		               .style("fill", function(d) { return color(d.data.age); })
+		               .attr("d", arc);
+		        });
 
 				  g.append("path")
 				      .attr("d", arc)

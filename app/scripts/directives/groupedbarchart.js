@@ -190,12 +190,12 @@ angular.module('offrApp')
 				    bar.selectAll("rect")
 				    	.on("mouseover", function() {
 				        d3.select(this)
-				          .style("fill", "#FF4500")
+				          .style("fill", "#FF4500");
 							})
 				    	.on("mouseout", function() {
 						    d3.select(this)
 						      .transition()
-						      .duration(250)
+						      .duration(300)
 						      .style("fill", "#FFA500");
 							});
 
