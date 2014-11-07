@@ -12,6 +12,8 @@ angular.module('offrApp')
       restrict: 'EA',
       scope: { 
       	selecteduser: '=selecteduser',
+      	compareuser: '=compareuser',
+      	hoveredfrom: '&hoveredfrom',
       	hovered: '=hovered'
       },
       link: function(scope, element, attrs) {
@@ -57,7 +59,7 @@ angular.module('offrApp')
 			      .attr("x", width/2)
 			      .attr("y", -22)
 			      .style("text-anchor", "middle")
-			      .text("Skills");
+			      .text("Hardskills");
 
  				  // x axis content
 				  var xAxisContent = svg.append("g")
@@ -96,10 +98,10 @@ angular.module('offrApp')
 			      .style("text-anchor", "start")
 			      .text("poor");
 
-          scope.$watch('hovered', function (newVal, oldVal) {
+          scope.$watch('compareuser', function (newVal, oldVal) {
 						if (angular.isUndefined(newVal)) return;
 
-						console.log('hovered');
+						console.log('compareuser');
 
 						if(newVal === null) {
 							if(users.length > 1)
@@ -108,7 +110,7 @@ angular.module('offrApp')
 							users.push(newVal);
 						}
 
-						adjustChart('hovered');
+						adjustChart('compareuser');
 					});
 
           scope.$watch('selecteduser', function (newVal, oldVal) {
@@ -124,7 +126,7 @@ angular.module('offrApp')
 
 					function adjustChart(mode) {
 
-						if(mode === 'hovered')
+						if(mode === 'compareuser')
 							var delay = 0;
 						if(mode === 'selecteduser')
 							var delay = 300;
@@ -175,6 +177,7 @@ angular.module('offrApp')
 						    .data(function(d) { return d.values; })
 						  .enter().append("rect")
 						  	.attr("class", "rect")
+					    	.attr("id", function(d) { return "bar_" + d.tag; })	
 						    .attr("transform", function(d) {
 						          return "translate(" + x0(d.tag) + ",0)"; 
 						     })
@@ -188,15 +191,17 @@ angular.module('offrApp')
 						    .attr("height", function(d) { return height - y(d.expertise); });
 
 				    bar.selectAll("rect")
-				    	.on("mouseover", function() {
+				    	.on("mouseover", function(d) {
 				        d3.select(this)
 				          .style("fill", "#FF4500");
+			          scope.hoveredfrom({args:d});
 							})
 				    	.on("mouseout", function() {
 						    d3.select(this)
 						      .transition()
 						      .duration(300)
 						      .style("fill", "#FFA500");
+					      scope.hoveredfrom({args:null});
 							});
 
 				    svg.selectAll(".bartext").remove(); // Remove all old bartext
@@ -229,6 +234,21 @@ angular.module('offrApp')
 					}
 
       });
+
+			scope.$watch('hovered', function (newVal, oldVal) {
+				if (angular.isUndefined(newVal)) return;
+
+				if(newVal !== null) {
+					d3.select("#bar_" + newVal.tag)
+		        	.style("fill", "#FF4500");
+        } else {
+					d3.select("#bar_" + oldVal.tag)
+				      .transition()
+				      .duration(300)
+				      .style("fill", "#FFA500");
+        }
+			});
+
     }
   };
 }]);
