@@ -11,10 +11,10 @@ angular.module('offrApp')
     return {
       restrict: 'EA',
       scope: { 
-      	selecteduser: '=selecteduser',
-      	compareuser: '=compareuser',
-      	hoveredfrom: '&hoveredfrom',
-      	hovered: '=hovered'
+      	selecteduser: '=',
+      	compareuser: '=',
+      	hoveredfrom: '&',
+      	hovered: '='
       },
       link: function(scope, element, attrs) {
         d3Service.d3().then(function(d3) {

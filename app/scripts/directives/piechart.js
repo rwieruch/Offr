@@ -11,10 +11,10 @@ angular.module('offrApp')
     return {
       restrict: 'EA',
       scope: {
-      	hardskill: '=hardskill',
-      	selecteduser: '=selecteduser',
-      	hoveredfrom: '&hoveredfrom',
-      	hovered: '=hovered'
+      	hardskill: '=',
+      	selecteduser: '=',
+      	hoveredfrom: '&',
+      	hovered: '='
       },
       link: function(scope, element, attrs) {
         d3Service.d3().then(function(d3) {
@@ -94,7 +94,7 @@ angular.module('offrApp')
 					      .attr("transform", function(d) { return "translate(" + arcLabels.centroid(d) + ")"; })
 					      .attr("dy", ".35em")
 					      .style("text-anchor", "middle")
-					      .text(function(d) { return d.data.expertise + " %"; });
+					      .text(function(d) { return d.data.expertise; });
 
 	        });
 

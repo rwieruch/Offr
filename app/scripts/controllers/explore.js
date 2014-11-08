@@ -29,6 +29,7 @@ angular.module('offrApp')
     $scope.compareuser = null;
 	}
 
+	$scope.hovered = null;
   $scope.hoveredfrom = function(d){
     $scope.hovered = d;
     $scope.$apply();
